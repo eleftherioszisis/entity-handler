@@ -17,7 +17,7 @@ setup(
         "numpy",
         "pandas",
         "entity_management>=1.2.41",
-        "cwl-registry>=1.1.0",
+        "blue-cwl",
     ],
     packages=find_packages(),
     include_package_data=True,
