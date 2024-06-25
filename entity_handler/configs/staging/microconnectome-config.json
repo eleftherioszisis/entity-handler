@@ -1,0 +1,68 @@
+{
+  "unitCode": {
+    "scale": "unit",
+    "exponent": "unit",
+    "mean_synapses_per_connection": "unit",
+    "sdev_synapses_per_connection": "unit",
+    "mean_conductance_velocity": "unit",
+    "sdev_conductance_velocity": "unit"
+  },
+  "hasPart": {
+    "1": {
+      "label": "left",
+      "hasPart": {
+        "1": {
+          "label": "left",
+          "hasPart": {
+            "http://api.brain-map.org/api/v2/data/Structure/614454292": {
+              "hasPart": {
+                "http://api.brain-map.org/api/v2/data/Structure/614454292": {
+                  "hasPart": {
+                    "http://uri.interlex.org/base/ilx_0383202": {
+                      "label": "L23_LBC",
+                      "hasPart": {
+                        "http://uri.interlex.org/base/ilx_0383202": {
+                          "label": "L23_LBC",
+                          "variantDefinition": {
+                            "algorithm": "distance",
+                            "version": "v1"
+                          },
+                          "configuration": [
+                            {
+                              "name": "scale",
+                              "value": 0.11
+                            },
+                            {
+                              "name": "exponent",
+                              "value": 0.007
+                            },
+                            {
+                              "name": "mean_synapses_per_connection",
+                              "value": 100
+                            },
+                            {
+                              "name": "sdev_synapses_per_connection",
+                              "value": 1
+                            },
+                            {
+                              "name": "mean_conductance_velocity",
+                              "value": 0.3
+                            },
+                            {
+                              "name": "sdev_conductance_velocity",
+                              "value": 0.01
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

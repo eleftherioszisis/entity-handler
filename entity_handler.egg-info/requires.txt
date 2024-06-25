@@ -1,0 +1,6 @@
+click>=8.0
+libsonata
+numpy
+pandas
+entity_management>=1.2.41
+cwl-registry>=1.1.0

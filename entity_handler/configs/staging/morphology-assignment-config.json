@@ -1,0 +1,16 @@
+{
+  "http://api.brain-map.org/api/v2/data/Structure/322": {
+    "variantDefinition": {
+      "algorithm": "morphology_assignment",
+      "version": "v1"
+    },
+    "inputs": [
+      {
+        "name": "mtype_morphologies",
+        "type": "Dataset",
+        "id": "https://bbp.epfl.ch/neurosciencegraph/data/69b30218-ca93-4b77-881a-80fccde2af1e"
+      }
+    ],
+    "configuration": {}
+  }
+}

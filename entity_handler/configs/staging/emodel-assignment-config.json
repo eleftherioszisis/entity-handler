@@ -1,0 +1,16 @@
+{
+  "http://api.brain-map.org/api/v2/data/Structure/322": {
+    "variantDefinition": {
+      "algorithm": "emodel_assignment",
+      "version": "v1"
+    },
+    "inputs": [
+      {
+        "name": "etype_emodels",
+        "type": "Dataset",
+        "id": "https://bbp.epfl.ch/neurosciencegraph/data/8fb6c394-b544-47fa-9f29-17defbdff09c"
+      }
+    ],
+    "configuration": {}
+  }
+}

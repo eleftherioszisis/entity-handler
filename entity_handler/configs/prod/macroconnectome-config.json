@@ -1,0 +1,24 @@
+{
+  "initial": {
+    "connection_strength": {
+      "id": "https://bbp.epfl.ch/neurosciencegraph/data/connectomestrength/8e285d4b-4d09-4357-98ae-9e9fc61face6",
+      "type": [
+        "Entity",
+        "Dataset",
+        "BrainConnectomeStrength"
+      ],
+      "rev": 7
+    }
+  },
+  "overrides": {
+    "connection_strength": {
+      "id": "https://bbp.epfl.ch/neurosciencegraph/data/3a2a597a-5163-4320-90c8-a9c1fdbeaf6f",
+      "type": [
+        "Entity",
+        "Dataset",
+        "BrainConnectomeStrengthOverrides"
+      ],
+      "rev": 4
+    }
+  }
+}
