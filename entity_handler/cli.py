@@ -11,8 +11,8 @@ from cwl_registry.variant import Variant
 from cwl_registry.utils import write_yaml
 
 from entity_handler.entities.variant.cli import variant
-from entity_handler.entities.model_building_config.cli import model_building_config, cell_composition_config
-
+from entity_handler.entities.model_building_config.cli import model_building_config
+from entity_handler.entities.cell_composition_config.cli import cell_composition_config
 
 @click.group("entity-handler")
 @click.option(
