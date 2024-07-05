@@ -6,6 +6,7 @@ from entity_management.config import ModelBuildingConfig
 from entity_management.atlas import CellComposition
 from entity_management.core import Entity,  attributes, AttrOf, BlankNode, DataDownload
 from entity_management.base import Derivation
+from entity_management.exception import ResourceNotFoundError
 
 from entity_management.util import get_entity
 from entity_management.nexus import load_by_id
@@ -23,7 +24,7 @@ class CanonicalMorphologyModelConfig(Entity):
 
 
 @attributes({
-    "distribution": AttrOf(DataDownload),
+    "distribution": AttrOf(DataDownload, default=None),
     "derivation": AttrOf(Derivation, default=None),
 })
 class PlaceholderMorphologyConfig(Entity):
@@ -74,13 +75,28 @@ def main(config_id, composition_id):
 from entity_handler import query
 
 
-def _in_derivation(composition, derivation):
+def _is_up_to_data(config, composition):
 
-    if derivation is None:
+    def _in_derivation(derivation):
+        entity = derivation.entity
+        return entity.get_id() == composition.get_id() and entity.get_rev() == composition.get_rev()
+
+    defaults = config.distribution.as_dict()["defaults"]
+
+    try:
+        canonical_config = get_entity(defaults["topological_synthesis"]["@id"], cls=CanonicalMorphologyModelConfig)
+        placeholder_config = get_entity(defaults["placeholder_assignment"]["@id"], cls=PlaceholderMorphologyConfig)
+    except ResourceNotFoundError:
         return False
 
-    entity = derivation.entity
-    return entity.get_id() == composition.get_id() and entity.get_rev() == composition.get_rev()
+    return not (
+        canonical_config._deprecated or
+        placeholder_config._deprecated or
+        canonical_config.derivation is None or
+        placeholder_config.derivation is None or
+        not _in_derivation(canonical_config.derivation) or
+        not _in_derivation(placeholder_config.derivation)
+    )
 
 
 def update_mmodel_config_default_distributions(config, composition):
@@ -88,11 +104,7 @@ def update_mmodel_config_default_distributions(config, composition):
     summary = composition.cellCompositionSummary
     placeholder = get_entity(PLACEHOLDER_ID, cls=Entity)
 
-    defaults = config.distribution.as_dict()["defaults"]
-    canonical_config = get_entity(defaults["topological_synthesis"]["@id"], cls=CanonicalMorphologyModelConfig)
-    placeholder_config = get_entity(defaults["placeholder_assignment"]["@id"], cls=PlaceholderMorphologyConfig)
-
-    if _in_derivation(composition, canonical_config.derivation) and _in_derivation(composition, placeholder_config.derivation):
+    if _is_up_to_data(config, composition):
         L.info("Config is already up to date with the composition.")
         return
 
