@@ -1,2 +1,0 @@
-[console_scripts]
-entity-handler = entity_handler.cli:app

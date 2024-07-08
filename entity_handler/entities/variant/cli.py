@@ -3,8 +3,8 @@ import tempfile
 from pathlib import Path
 
 from entity_management.util import get_entity
-from cwl_registry.variant import Variant
-from cwl_registry.utils import write_yaml
+from blue_cwl.variant import Variant
+from blue_cwl.utils import write_yaml
 
 from .update_variant_distribution import update_variant_version
 

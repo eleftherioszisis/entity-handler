@@ -2,7 +2,7 @@ import logging
 from pathlib import Path
 from kgforge.core import Resource
 import json
-from cwl_registry.nexus import get_forge
+from blue_cwl.nexus import get_forge
 
 from . import register_macro_connectome_config, register_micro_connectome_config
 

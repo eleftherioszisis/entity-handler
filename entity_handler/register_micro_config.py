@@ -1,4 +1,4 @@
-from cwl_registry.nexus import get_forge, get_resource
+from blue_cwl.nexus import get_forge, get_resource
 from kgforge.core import Resource
 import json
 from pathlib import Path
